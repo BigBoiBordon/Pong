@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvii4kisygsxl"]
+
+[ext_resource type="PackedScene" uid="uid://8wjiesvdgsou" path="res://Scenes/player_1.tscn" id="1_tec2r"]
+[ext_resource type="PackedScene" uid="uid://bp25fplje17bv" path="res://Scenes/player_2.tscn" id="2_y7p2e"]
+[ext_resource type="PackedScene" uid="uid://bw0cdjwg684p2" path="res://Scenes/ball.tscn" id="3_wdrvs"]
+[ext_resource type="PackedScene" uid="uid://mfx25o3uly6g" path="res://Scenes/scoreboard.tscn" id="4_mruln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj8qk"]
+size = Vector2(1189, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4i6o"]
+size = Vector2(1178, 18)
+
+[node name="Background" type="Node2D"]
+
+[node name="Player1" parent="." instance=ExtResource("1_tec2r")]
+position = Vector2(38, 325)
+
+[node name="Player_2" parent="." instance=ExtResource("2_y7p2e")]
+position = Vector2(1124, 325)
+
+[node name="Ball" parent="." instance=ExtResource("3_wdrvs")]
+position = Vector2(565, 325)
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(-11, 644)
+
+[node name="Top Collision Bar" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(586.5, -647)
+shape = SubResource("RectangleShape2D_oj8qk")
+
+[node name="Panel" type="Panel" parent="CharacterBody2D2"]
+offset_left = -6.5
+offset_top = -655.0
+offset_right = 1181.5
+offset_bottom = -639.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Bottom Collision Bar" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(573, 651)
+shape = SubResource("RectangleShape2D_m4i6o")
+
+[node name="Panel2" type="Panel" parent="CharacterBody2D"]
+offset_left = -11.0
+offset_top = 644.0
+offset_right = 1164.0
+offset_bottom = 684.0
+
+[node name="Scoreboard" parent="." instance=ExtResource("4_mruln")]
+position = Vector2(-1, 2)

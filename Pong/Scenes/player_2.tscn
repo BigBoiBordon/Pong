@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp25fplje17bv"]
+
+[ext_resource type="Script" path="res://Scripts/player_2.gd" id="1_togn2"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4ghx1"]
+a = Vector2(0, -56)
+b = Vector2(3, -52)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s028h"]
+a = Vector2(3, -52)
+b = Vector2(4, -19)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_swkpe"]
+a = Vector2(4, -19)
+b = Vector2(4, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1ctnh"]
+a = Vector2(3, 48)
+b = Vector2(4, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_djeds"]
+a = Vector2(3, 47)
+b = Vector2(0, 54)
+
+[node name="Player_2" type="CharacterBody2D"]
+script = ExtResource("1_togn2")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -2.0
+offset_top = -55.0
+offset_right = 2.0
+offset_bottom = 55.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+rotation = -3.14159
+shape = SubResource("SegmentShape2D_4ghx1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+rotation = -3.14159
+shape = SubResource("SegmentShape2D_s028h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+rotation = -3.14159
+shape = SubResource("SegmentShape2D_swkpe")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+rotation = -3.14159
+shape = SubResource("SegmentShape2D_1ctnh")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+rotation = -3.14159
+shape = SubResource("SegmentShape2D_djeds")

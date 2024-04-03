@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://8wjiesvdgsou"]
+
+[ext_resource type="Script" path="res://Scripts/player_1.gd" id="1_6ugus"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4lsjb"]
+a = Vector2(0, -56)
+b = Vector2(3, -52)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_x80p5"]
+a = Vector2(3, -52)
+b = Vector2(4, -19)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qwqdj"]
+a = Vector2(4, -19)
+b = Vector2(4, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ujft7"]
+a = Vector2(3, 48)
+b = Vector2(4, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j8635"]
+a = Vector2(3, 47)
+b = Vector2(0, 54)
+
+[node name="Player_1" type="CharacterBody2D"]
+script = ExtResource("1_6ugus")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -2.0
+offset_top = -55.0
+offset_right = 2.0
+offset_bottom = 55.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_4lsjb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_x80p5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_qwqdj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_ujft7")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_j8635")
