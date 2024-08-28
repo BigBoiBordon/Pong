@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://b213ajf3ti728"]
+
+[ext_resource type="Script" path="res://Global/Scripts/Score.gd" id="1_jh0dx"]
+[ext_resource type="Script" path="res://Global/Scripts/Player 1 Score.gd" id="2_lsjb8"]
+[ext_resource type="Script" path="res://Global/Scripts/Player 2 Score.gd" id="3_b4inb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vewrj"]
+size = Vector2(20, 653.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nohlu"]
+size = Vector2(1178, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ugrs"]
+size = Vector2(1189, 14)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_jh0dx")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 470.0
+offset_top = 9.0
+offset_right = 682.0
+offset_bottom = 49.0
+
+[node name="Point Player 1 Area" type="Area2D" parent="."]
+position = Vector2(1152, 209)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Point Player 1 Area"]
+position = Vector2(40, 115)
+shape = SubResource("RectangleShape2D_vewrj")
+
+[node name="Player 1 Score" type="Label" parent="Point Player 1 Area"]
+offset_left = -667.0
+offset_top = -192.0
+offset_right = -579.0
+offset_bottom = -169.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_lsjb8")
+
+[node name="Point Player 2 Area" type="Area2D" parent="."]
+position = Vector2(1152, 209)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Point Player 2 Area"]
+position = Vector2(-1184, 115)
+shape = SubResource("RectangleShape2D_vewrj")
+
+[node name="Player 2 Score" type="Label" parent="Point Player 2 Area"]
+offset_left = -567.0
+offset_top = -193.0
+offset_right = -483.0
+offset_bottom = -170.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_b4inb")
+
+[node name="Bottom Bar" type="CharacterBody2D" parent="."]
+
+[node name="Bottom Collision Bar" type="CollisionShape2D" parent="Bottom Bar"]
+position = Vector2(573, 651)
+shape = SubResource("RectangleShape2D_nohlu")
+
+[node name="Panel" type="Panel" parent="Bottom Bar"]
+offset_left = -11.0
+offset_top = 644.0
+offset_right = 1164.0
+offset_bottom = 684.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Top Bar" type="CharacterBody2D" parent="."]
+position = Vector2(-11, 644)
+
+[node name="Top Collision Bar" type="CollisionShape2D" parent="Top Bar"]
+position = Vector2(586.5, -647)
+shape = SubResource("RectangleShape2D_6ugrs")
+
+[node name="Panel" type="Panel" parent="Top Bar"]
+offset_left = -6.5
+offset_top = -655.0
+offset_right = 1181.5
+offset_bottom = -639.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Point Player 1 Area" to="." method="_on_point_player_1_area_body_entered"]
+[connection signal="body_entered" from="Point Player 2 Area" to="." method="_on_point_player_2_area_body_entered"]

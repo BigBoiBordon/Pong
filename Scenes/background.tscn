@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvii4kisygsxl"]
+
+[ext_resource type="PackedScene" uid="uid://8wjiesvdgsou" path="res://Scenes/player_1.tscn" id="1_tec2r"]
+[ext_resource type="PackedScene" uid="uid://bp25fplje17bv" path="res://Scenes/player_2.tscn" id="2_y7p2e"]
+[ext_resource type="PackedScene" uid="uid://bw0cdjwg684p2" path="res://Scenes/ball.tscn" id="3_wdrvs"]
+[ext_resource type="PackedScene" uid="uid://b213ajf3ti728" path="res://Scenes/canvas_layer.tscn" id="4_b78gh"]
+[ext_resource type="Script" path="res://Global/Scripts/Retry Button.gd" id="5_qk24b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uepe3"]
+size = Vector2(38, 751)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mygqk"]
+size = Vector2(34, 709)
+
+[node name="Background" type="Node2D"]
+
+[node name="Player1" parent="." instance=ExtResource("1_tec2r")]
+position = Vector2(38, 325)
+
+[node name="Player_2" parent="." instance=ExtResource("2_y7p2e")]
+position = Vector2(1124, 325)
+
+[node name="Ball" parent="." instance=ExtResource("3_wdrvs")]
+position = Vector2(565, 325)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_b78gh")]
+
+[node name="Retry" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 523.0
+offset_right = 666.0
+offset_bottom = 551.0
+text = "Press to Reset
+"
+script = ExtResource("5_qk24b")
+
+[node name="Reset Player 1" type="Area2D" parent="Retry"]
+position = Vector2(756, -205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Retry/Reset Player 1"]
+position = Vector2(-31, 9)
+shape = SubResource("RectangleShape2D_uepe3")
+
+[node name="Reset Player 2" type="Area2D" parent="Retry"]
+position = Vector2(-550, -204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Retry/Reset Player 2"]
+position = Vector2(23, 7)
+shape = SubResource("RectangleShape2D_mygqk")
+
+[connection signal="pressed" from="Retry" to="Ball" method="_on_retry_pressed"]
+[connection signal="body_entered" from="Retry/Reset Player 1" to="Retry" method="_on_reset_player_1_body_entered"]
+[connection signal="body_entered" from="Retry/Reset Player 2" to="Retry" method="_on_reset_player_2_body_entered"]
